@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\front;
+namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Review;
-use App\Models\User;
 use App\Models\Setting;
-use App\Models\Webreview;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -50,7 +48,7 @@ class ReviewController extends Controller
                 $formData['product_id'] = $id;
                 DB::table('wishlists')->insert($formData);
                 $notification = array('message' => 'Product Add To Wishlist Successfully!','alert-type' => 'success');
-                return redirect()->back()->with($notification);                
+                return redirect()->back()->with($notification);
             }
         }
         else{
