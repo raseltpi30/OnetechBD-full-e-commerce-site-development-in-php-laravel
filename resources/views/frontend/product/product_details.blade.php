@@ -1,5 +1,9 @@
 @extends('layouts.app')
+@section('title')
+    {{$product->name}}
+@endsection
 @section('content')
+
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/product_styles.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/product_responsive.css">
     @section('navbar')
@@ -59,18 +63,6 @@
                                 $sum_rating=App\Models\Review::where('product_id',$product->id)->sum('rating');
                                 $count_rating=App\Models\Review::where('product_id',$product->id)->count('rating');
                                 $average_rating = $sum_rating/$count_rating
-
-                                //Share plugin 
-                                            // Share button 1
-                                        // $shareButtons1 = \Share::page(
-                                        //     url()->current()
-                                        // )
-                                        // ->facebook()
-                                        // ->twitter()
-                                        // ->linkedin()
-                                        // ->telegram()
-                                        // ->whatsapp() 
-                                        // ->reddit();
                             @endphp
                             @if($sum_rating !=NULL)
                                 {{$average_rating}}

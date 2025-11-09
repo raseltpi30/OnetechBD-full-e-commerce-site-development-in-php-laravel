@@ -1,6 +1,9 @@
 @php
 	$setting = DB::table('settings')->get()->first();
 @endphp@extends('layouts.app')
+@section('title')
+    Order Details
+@endsection
 @section('content')
 	<div class="home">
 		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('public/frontend') }}/images/shop_background.jpg"></div>

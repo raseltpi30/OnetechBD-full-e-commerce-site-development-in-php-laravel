@@ -83,7 +83,7 @@
             </div> 
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea name="description" class="form-control" id="description" placeholder="description" cols="5" rows="2"></textarea>
+                <textarea name="description" class="form-control textarea" id="description" placeholder="description" cols="5" rows="2"></textarea>
             </div> 
             <div class="form-group">
                 <label for="thumbnail">Blog Thumbnail</label>

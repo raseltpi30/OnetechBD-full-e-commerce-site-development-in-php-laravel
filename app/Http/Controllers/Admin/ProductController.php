@@ -262,13 +262,14 @@ class ProductController extends Controller
             if(File::exists($request->old_thumbnail)){
                 unlink($request->old_thumbnail);
             }  
-             $thumbnail=$request->thumbnail;
-             $photoname=$slug.'.'.$thumbnail->getClientOriginalExtension();
-             $manager = new ImageManager(new Driver());
-             $thumbnail = $manager->read($thumbnail);
-             $thumbnail = $thumbnail->resize(600,600);
-             $thumbnail->toJpeg(80)->save(base_path('public/files/product/'.$photoname));
-             $data['thumbnail'] = $photoname;   // public/files/product/plus-point.jpg
+            $thumbnail=$request->thumbnail;
+            $photoname=$slug.'.'.$thumbnail->getClientOriginalExtension();
+            $manager = new ImageManager(new Driver());
+            $thumbnail = $manager->read($thumbnail);
+            // merge the transparent areas with orange
+            $thumbnail->blendTransparency('f50');
+            $thumbnail->toJpeg(80)->save(base_path('public/files/product/'.$photoname));
+            $data['thumbnail'] = $photoname;   // public/files/product/plus-point.jpg
 
         }
 
@@ -299,7 +300,7 @@ class ProductController extends Controller
 
        DB::table('products')->where('id',$request->id)->update($data);
        $notification=array('message' => 'Product Updated!', 'alert-type' => 'success');
-       return redirect()->back()->with($notification);
+       return redirect()->route('product.index')->with($notification);
     }
 
     //not featured

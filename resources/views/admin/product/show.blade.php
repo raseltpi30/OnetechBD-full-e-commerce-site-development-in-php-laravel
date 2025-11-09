@@ -48,7 +48,7 @@
                                 </tr>
                                 <tr>
                                     <th class="text-right">Description :</th>
-                                    <td>{{$product->description}}</td>
+                                    <td>{!!$product->description!!}</td>
                                 </tr>
                                 <tr>
                                     <th class="text-right">Cost Price :</th>

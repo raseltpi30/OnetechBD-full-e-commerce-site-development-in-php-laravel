@@ -2,6 +2,9 @@
 	$setting = DB::table('settings')->get()->first();
 @endphp
 @extends('layouts.app')
+@section('title')
+    Cart
+@endsection
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/styles/cart_styles.css">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/styles/cart_responsive.css">

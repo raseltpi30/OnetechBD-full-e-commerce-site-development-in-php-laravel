@@ -12,9 +12,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title') - OneTech Online Shoping</title>
     <meta name="description" content="OneTech shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="{{asset('files/website_setting/favicon-1715189676.jpg')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/styles/bootstrap4/bootstrap.min.css">
     <link href="{{asset('frontend')}}/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -67,7 +68,7 @@
 										<ul class="standard_dropdown top_bar_dropdown">
 											<li>
 												<a href="#">Login<i class="fas fa-chevron-down"></i></a>
-												<ul style="width:300px; padding:10px;">
+												<ul style="width:250px; padding:10px;">
 												   <div>
 													<strong>login your account</strong><br>
 													<br>
@@ -75,11 +76,11 @@
 														@csrf
 														   <div class="form-group">
 															   <label>Email Address</label>
-															   <input type="email" class="form-control" name="email" autofocus>
+															   <input type="email" class="form-control" autocomplete="off" name="email" autofocus>
 														   </div>
 														   <div class="form-group">
 															   <label>Password</label>
-															   <input type="password" class="form-control" name="password" required="">
+															   <input type="password" class="form-control" autocomplete="off" name="password" required="">
 														   </div>
 														   <div class="form-group row">
 															   <div class="offset-md-2">

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Order Tracking
+@endsection
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/shop_styles.css">

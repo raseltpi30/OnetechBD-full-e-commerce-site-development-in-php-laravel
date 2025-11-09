@@ -26,7 +26,6 @@ class BrandController extends Controller
             return DataTables::of($this->data)
             ->addIndexColumn()
             ->addColumn('action', function($row){
-
                 $actionbtn='<a href="#" class="btn btn-info btn-sm edit" data-id="'.$row->id.'" data-toggle="modal" data-target="#editModal" ><i class="fas fa-edit"></i></a>
                 <a href="'.route('brand.delete',['brand_id'=> $row->id]).'" class="btn btn-danger btn-sm" id="delete"><i class="fas fa-trash"></i>
                 </a>';
@@ -70,7 +69,6 @@ class BrandController extends Controller
     }
     public function edit($id){
         $data = DB::table('brands')->where('id',$id)->first();
-        return $data->brand_name;
         return view('admin.category.brand.edit',compact('data'));
     } 
     public function update(Request $request){

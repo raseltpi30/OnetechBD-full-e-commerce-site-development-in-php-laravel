@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Blog
+@endsection
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/styles/blog_styles.css">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/styles/blog_responsive.css">

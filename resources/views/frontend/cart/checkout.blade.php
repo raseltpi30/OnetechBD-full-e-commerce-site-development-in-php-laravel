@@ -2,6 +2,9 @@
 	$setting = DB::table('settings')->get()->first();
 @endphp
 @extends('layouts.app')
+@section('title')
+    Checkout
+@endsection
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/styles/cart_styles.css">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend')}}/styles/cart_responsive.css">
@@ -67,7 +70,7 @@
 									<input type="radio"  name="payment_type" checked="" value="Aamarpay" id="bkash">
 								</div>
 								<div class="form-group col-lg-4">
-									<label for="hand_cash">Hand Cash</label>
+									<label for="hand_cash">Cash On Delivery </label>
 									<input type="radio"  name="payment_type" value="Hand Cash" id="hand_cash">
 								</div>
 								

@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('admin_content')
 <link rel="stylesheet" href="{{asset('backend')}}/custom/product/css/bootstrap-tagsinput.css"/>
-<script type="text/javascript" src="{{asset('backend')}}/custom/product/js/bootstrap-tagsinput.min.js"></script>
 <style type="text/css">
 <style type="text/css">
   .bootstrap-tagsinput .tag {
@@ -262,6 +261,7 @@
   <script src="{{asset('backend')}}/custom/product/js/dropify.min.js"></script>
   <link rel="stylesheet" href="{{asset('backend')}}/custom/product/css/dropify.min.css"/>
   <script src="{{ asset('backend') }}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+  <script type="text/javascript" src="{{asset('backend')}}/custom/product/js/bootstrap-tagsinput.min.js"></script>
 
 
 <script type="text/javascript">

@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('admin_content')
 <link rel="stylesheet" href="{{asset('backend')}}/custom/product/css/bootstrap-tagsinput.css"/>
-<script type="text/javascript" src="{{asset('backend')}}/custom/product/js/bootstrap-tagsinput.min.js"></script>
 <style type="text/css">
   .bootstrap-tagsinput .tag {
     background: #428bca;;
@@ -13,8 +12,6 @@
     border-radius: 4px;
   }
 </style>
-
-
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -116,7 +113,7 @@
                     </div>
                     <div class="form-group col-lg-6">
                       <label for="exampleInputPassword1">Tags</label><br>
-                      <input type="text" name="tags" class="form-control" value="{{ old('tags') }}" name="tags" data-role="tagsinput">
+                      <input type="text" name="tags" class="form-control " value="{{ old('tags') }}" name="tags" data-role="tagsinput">
                     </div>
                   </div>
                   <div class="row">
@@ -240,11 +237,13 @@
 <script src="{{asset('backend')}}/custom/product/js/dropify.min.js"></script>
 <link rel="stylesheet" href="{{asset('backend')}}/custom/product/css/dropify.min.css"/>
 <script src="{{ asset('backend') }}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script type="text/javascript" src="{{asset('backend')}}/custom/product/js/bootstrap-tagsinput.min.js"></script>
 
 
 <script type="text/javascript">
   $('.dropify').dropify();  //dropify image
     $("input[data-bootstrap-switch]").each(function(){
+      $(this).bootstrapSwitch('state', $(this).prop('checked'));
       $(this).bootstrapSwitch('state', $(this).prop('checked'));
     });
 

@@ -2,6 +2,9 @@
     $setting = DB::table('settings')->first();
 @endphp
 @extends('layouts.app')
+@section('title')
+{{ $subcategory->subcategory_name }} Subcategory Product
+@endsection
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/shop_styles.css">
@@ -26,7 +29,7 @@
 			                       @foreach($brand as $row) 
 			                        <div class="owl-item">
 			                            <div class="brands_item d-flex flex-column justify-content-center">
-			                               <a href="" title="{{ $row->brand_name }}"> <img src="{{ asset('files/brand/'.$row->brand_logo) }}" alt="{{ $row->brand_name }}" height="50" width="40"> </a>
+			                               <a href="{{route('brandwise.product',$row->id)}}" title="{{ $row->brand_name }}"> <img src="{{ asset('files/brand/'.$row->brand_logo) }}" alt="{{ $row->brand_name }}" height="50" width="40"> </a>
 			                            </div>
 			                        </div>
 			                       @endforeach     

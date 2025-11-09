@@ -24,20 +24,21 @@ class IndexController extends Controller
         $home_category = Category::where('homepage',1)->orderBy('id','ASC')->limit(4)->get();
         $setting = Setting::all()->first();
         $bannerproduct = Product::where('status',1)->where('product_slider',1)->latest()->first();
+        $slider_product = Product::where('status',1)->where('product_slider',1)->limit(3)->get();
         $featured = Product::where('status',1)->where('featured',1)->limit(10)->get();
         $trendy_product = Product::where('status',1)->where('trendy',1)->limit(10)->get();
         $popular_product = Product::where('status',1)->orderBy('product_views','DESC')->limit(10)->get();
         $review = DB::table('webreviews')->where('status',1)->orderBy('id','DESC')->limit(10)->get();
         $random_product = Product::where('status',1)->inRandomOrder()->limit(10)->get();        
         $today_deal = Product::where('status',1)->where('today_deal',1)->limit(4)->get();
-        return view('frontend.index',compact('category','brand','bannerproduct','setting','featured','popular_product','review','trendy_product','home_category','random_product','today_deal'));
+        return view('frontend.index',compact('category','brand','bannerproduct','setting','featured','popular_product','review','trendy_product','home_category','random_product','today_deal','slider_product'));
     }
     public function productDetails($slug){
         //for productdetails page
         $category = Category::all();
         $setting = Setting::all()->first();
         $product = Product::where('slug',$slug)->first();
-        Product::where('slug',$slug)->increment('product_views');
+                   Product::where('slug',$slug)->increment('product_views');
         $review = Review::where('product_id',$product->id)->orderBy('id','DESC')->take('6')->get();
         $related_product=DB::table('products')->where('subcategory_id',$product->subcategory_id)->orderBy('id','DESC')->take(10)->get();
         return view('frontend.product.product_details',compact('category','setting','product','review','related_product'));

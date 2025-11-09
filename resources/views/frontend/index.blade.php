@@ -1,14 +1,20 @@
 @extends('layouts.app')
-@section('navbar')
-    @include('layouts.front_partial.main_nav')
+@section('title')
+    Home
 @endsection
 @section('content')
+{{-- <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/product_styles.css"> --}}
+{{-- <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/product_responsive.css"> --}}
+    @section('navbar')
+        @include('layouts.front_partial.collaps_nav')
+        {{-- @include('layouts.front_partial.main_nav') --}}
+    @endsection
 <div class="banner">
-    <div class="banner_background" style="background-image:url({{ asset('frontend') }}/images/banner_background.jpg)"></div>
+<div class="banner_background" style="background-image:url({{ asset('frontend') }}/images/banner_background.jpg)"></div>
     <div class="container fill_height">
         <div class="row fill_height">
             @isset($bannerproduct->thumbnail)
-                <div class="banner_product_image"><img src="{{ asset('files/product/'.$bannerproduct->thumbnail) }}" alt="{{ $bannerproduct->name }}"></div>
+                <div class="banner_product_image"><img style="mix-blend-mode:multiply !important;" src="{{ asset('files/product/'.$bannerproduct->thumbnail) }}" alt="{{ $bannerproduct->name }}"></div>
             
             
             <div class="col-lg-5 offset-lg-4 fill_height">
@@ -40,7 +46,7 @@
                     <div class="char_icon"><img src="{{asset('frontend')}}/images/char_1.png" alt=""></div>
                     <div class="char_content">
                         <div class="char_title">Free Delivery</div>
-                        <div class="char_subtitle">from $50</div>
+                        <div class="char_subtitle">from {{$setting->currency}}1000</div>
                     </div>
                 </div>
             </div>
@@ -52,7 +58,7 @@
                     <div class="char_icon"><img src="{{asset('frontend')}}/images/char_2.png" alt=""></div>
                     <div class="char_content">
                         <div class="char_title">Free Delivery</div>
-                        <div class="char_subtitle">from $50</div>
+                        <div class="char_subtitle">from {{$setting->currency}}1000</div>
                     </div>
                 </div>
             </div>
@@ -64,7 +70,7 @@
                     <div class="char_icon"><img src="{{asset('frontend')}}/images/char_3.png" alt=""></div>
                     <div class="char_content">
                         <div class="char_title">Free Delivery</div>
-                        <div class="char_subtitle">from $50</div>
+                        <div class="char_subtitle">from {{$setting->currency}}1000</div>
                     </div>
                 </div>
             </div>
@@ -76,7 +82,7 @@
                     <div class="char_icon"><img src="{{asset('frontend')}}/images/char_4.png" alt=""></div>
                     <div class="char_content">
                         <div class="char_title">Free Delivery</div>
-                        <div class="char_subtitle">from $50</div>
+                        <div class="char_subtitle">from {{$setting->currency}}1000</div>
                     </div>
                 </div>
             </div>
@@ -307,79 +313,32 @@
         <div class="owl-carousel owl-theme banner_2_slider">
 
             <!-- Banner 2 Slider Item -->
+            @foreach ($slider_product as $row)
             <div class="owl-item">
                 <div class="banner_2_item">
                     <div class="container fill_height">
                         <div class="row fill_height">
                             <div class="col-lg-4 col-md-6 fill_height">
                                 <div class="banner_2_content">
-                                    <div class="banner_2_category">Laptops</div>
-                                    <div class="banner_2_title">MacBook Air 13</div>
+                                    <div class="banner_2_category">{{$row->category->category_name}}</div>
+                                    <div class="banner_2_title">{{$row->name}}</div>
                                     <div class="banner_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</div>
                                     <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                    <div class="button banner_2_button"><a href="#">Explore</a></div>
+                                    <div class="button banner_2_button"><a href="{{route('product.details',$row->slug)}}">Shoping Now</a></div>
                                 </div>
                                 
                             </div>
                             <div class="col-lg-8 col-md-6 fill_height">
                                 <div class="banner_2_image_container">
-                                    <div class="banner_2_image"><img src="{{asset('frontend')}}/images/banner_2_product.png" alt=""></div>
+                                    <div class="banner_2_image"><img src="{{asset('files/product/'.$row->thumbnail)}}" alt=""></div>
                                 </div>
                             </div>
                         </div>
                     </div>			
                 </div>
             </div>
-
-            <!-- Banner 2 Slider Item -->
-            <div class="owl-item">
-                <div class="banner_2_item">
-                    <div class="container fill_height">
-                        <div class="row fill_height">
-                            <div class="col-lg-4 col-md-6 fill_height">
-                                <div class="banner_2_content">
-                                    <div class="banner_2_category">Laptops</div>
-                                    <div class="banner_2_title">MacBook Air 13</div>
-                                    <div class="banner_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</div>
-                                    <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                    <div class="button banner_2_button"><a href="#">Explore</a></div>
-                                </div>
-                                
-                            </div>
-                            <div class="col-lg-8 col-md-6 fill_height">
-                                <div class="banner_2_image_container">
-                                    <div class="banner_2_image"><img src="{{asset('frontend')}}/images/banner_2_product.png" alt=""></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>			
-                </div>
-            </div>
-
-            <!-- Banner 2 Slider Item -->
-            <div class="owl-item">
-                <div class="banner_2_item">
-                    <div class="container fill_height">
-                        <div class="row fill_height">
-                            <div class="col-lg-4 col-md-6 fill_height">
-                                <div class="banner_2_content">
-                                    <div class="banner_2_category">Laptops</div>
-                                    <div class="banner_2_title">MacBook Air 13</div>
-                                    <div class="banner_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</div>
-                                    <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                    <div class="button banner_2_button"><a href="#">Explore</a></div>
-                                </div>
-                                
-                            </div>
-                            <div class="col-lg-8 col-md-6 fill_height">
-                                <div class="banner_2_image_container">
-                                    <div class="banner_2_image"><img src="{{asset('frontend')}}/images/banner_2_product.png" alt=""></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>			
-                </div>
-            </div>
+                
+            @endforeach
 
         </div>
     </div>
@@ -391,7 +350,7 @@
 @php 
   $cat_product=DB::table('products')->where('category_id',$row->id)->orderBy('id','DESC')->limit(24)->get();
 @endphp
- <div class="new_arrivals">
+ <div class="new_arrivals pb-0" style="padding-top:90px;">
      <div class="container">
          <div class="row">
              <div class="col">

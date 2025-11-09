@@ -2,6 +2,9 @@
     $setting = DB::table('settings')->first();
 @endphp
 @extends('layouts.app')
+@section('title')
+{{ $category->category_name }} Category Product
+@endsection
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend') }}/styles/shop_styles.css">

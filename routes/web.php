@@ -19,7 +19,7 @@ Route::post('customer/register', [App\Http\Controllers\Front\CustomerController:
 
 Route::group(['namespace' => 'App\Http\Controllers\Front'],function(){
     Route::get('customer/logout','ProfileController@CustomerLogout')->name('customer.logout');
-    Route::get('/home','ProfileController@Home')->name('home');
+    Route::get('/profile','ProfileController@Home')->name('home');
     Route::get('/','IndexController@index')->name('index');
     Route::get('/product_details/{slug}','IndexController@productDetails')->name('product.details');
     Route::get('/product-quick-view/{id}','ReviewController@quick')->name('product.view');
