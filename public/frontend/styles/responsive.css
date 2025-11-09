@@ -132,7 +132,7 @@
 {
 	.top_bar
 	{
-		/*display: none;*/
+		/* display: none; */
 	}
 	.header_search
 	{
@@ -204,9 +204,9 @@
 	    transform: translateY(-1px);
 	    width: 12px;
 	}
-	.cat_menu_container ul
+	.cat_menu_container
 	{
-		visibility: hidden;
+		visibility: visible;
 		opacity: 0;
 	}
 	.char_col:not(:last-child):not(:nth-child(3))
